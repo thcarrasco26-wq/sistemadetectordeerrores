@@ -6,73 +6,54 @@
     <title>Login - PrediCalc</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-        .login-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
-        }
-    </style>
 </head>
-<body class="login-bg min-h-screen flex items-center justify-center text-white">
+<body class="bg-zinc-950 text-white min-h-screen flex items-center justify-center">
     
-    <div class="max-w-md w-full mx-4">
-        <!-- Card -->
-        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl shadow-2xl p-10">
+    <div class="max-w-md w-full mx-6">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl p-10 shadow-2xl">
             
             <div class="text-center mb-10">
-                <div class="w-20 h-20 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-4xl">
+                <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-amber-500 rounded-3xl flex items-center justify-center mx-auto mb-5 text-5xl shadow-lg">
                     📊
                 </div>
-                <h1 class="text-3xl font-bold">PrediCalc</h1>
-                <p class="text-zinc-400 mt-2">Inicia sesión para continuar</p>
+                <h1 class="text-4xl font-bold">PrediCalc</h1>
+                <p class="text-zinc-400 mt-2">Inicia sesión para acceder al simulador</p>
             </div>
 
-            <form id="loginForm">
-                <div class="space-y-6">
-                    <!-- Usuario -->
-                    <div>
-                        <label class="block text-sm text-zinc-400 mb-2">Usuario</label>
-                        <div class="relative">
-                            <i class="fas fa-user absolute left-4 top-4 text-zinc-500"></i>
-                            <input type="text" id="username" 
-                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:border-orange-500 transition-colors"
-                                   placeholder="Ingresa tu usuario" value="demo" required>
-                        </div>
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-zinc-400 text-sm mb-2">Usuario</label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-4 top-4 text-zinc-500"></i>
+                        <input type="text" id="username" value="demo" 
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-5 focus:border-orange-500 focus:outline-none transition-all">
                     </div>
-
-                    <!-- Contraseña -->
-                    <div>
-                        <label class="block text-sm text-zinc-400 mb-2">Contraseña</label>
-                        <div class="relative">
-                            <i class="fas fa-lock absolute left-4 top-4 text-zinc-500"></i>
-                            <input type="password" id="password" 
-                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:border-orange-500 transition-colors"
-                                   placeholder="Ingresa tu contraseña" value="123456" required>
-                        </div>
-                    </div>
-
-                    <!-- Botón -->
-                    <button type="submit"
-                            class="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3">
-                        <i class="fas fa-sign-in-alt"></i>
-                        INICIAR SESIÓN
-                    </button>
                 </div>
+
+                <div>
+                    <label class="block text-zinc-400 text-sm mb-2">Contraseña</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-4 top-4 text-zinc-500"></i>
+                        <input type="password" id="password" value="123456" 
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-5 focus:border-orange-500 focus:outline-none transition-all">
+                    </div>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3">
+                    <i class="fas fa-sign-in-alt"></i>
+                    INICIAR SESIÓN
+                </button>
             </form>
 
-            <div class="text-center mt-8">
-                <p class="text-zinc-500 text-sm">
-                    Usuario demo: <span class="text-orange-400">demo</span><br>
-                    Contraseña: <span class="text-orange-400">123456</span>
-                </p>
+            <div class="mt-8 text-center text-sm text-zinc-500">
+                <p>Usuario demo: <span class="text-orange-400 font-medium">demo</span></p>
+                <p>Contraseña: <span class="text-orange-400 font-medium">123456</span></p>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="text-center mt-8 text-zinc-500 text-sm">
-            <a href="index.html" class="hover:text-orange-400 transition-colors">
+        <div class="text-center mt-6">
+            <a href="index.html" class="text-zinc-400 hover:text-orange-400 transition-colors">
                 ← Volver al inicio
             </a>
         </div>
@@ -81,14 +62,13 @@
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
 
-            if (username === "demo" && password === "123456") {
+            if (user === "demo" && pass === "123456") {
                 window.location.href = "dashboard.html";
             } else {
-                alert("Usuario o contraseña incorrectos. Usa: demo / 123456");
+                alert("❌ Usuario o contraseña incorrectos.\n\nPrueba con:\ndemo / 123456");
             }
         });
     </script>
