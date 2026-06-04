@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PrediCalc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .login-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+    </style>
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center text-white">
+    
+    <div class="max-w-md w-full mx-4">
+        <!-- Card -->
+        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl shadow-2xl p-10">
+            
+            <div class="text-center mb-10">
+                <div class="w-20 h-20 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-4xl">
+                    📊
+                </div>
+                <h1 class="text-3xl font-bold">PrediCalc</h1>
+                <p class="text-zinc-400 mt-2">Inicia sesión para continuar</p>
+            </div>
 
+            <form id="loginForm">
+                <div class="space-y-6">
+                    <!-- Usuario -->
+                    <div>
+                        <label class="block text-sm text-zinc-400 mb-2">Usuario</label>
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-4 top-4 text-zinc-500"></i>
+                            <input type="text" id="username" 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:border-orange-500 transition-colors"
+                                   placeholder="Ingresa tu usuario" value="demo" required>
+                        </div>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div>
+                        <label class="block text-sm text-zinc-400 mb-2">Contraseña</label>
+                        <div class="relative">
+                            <i class="fas fa-lock absolute left-4 top-4 text-zinc-500"></i>
+                            <input type="password" id="password" 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:border-orange-500 transition-colors"
+                                   placeholder="Ingresa tu contraseña" value="123456" required>
+                        </div>
+                    </div>
+
+                    <!-- Botón -->
+                    <button type="submit"
+                            class="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fas fa-sign-in-alt"></i>
+                        INICIAR SESIÓN
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-center mt-8">
+                <p class="text-zinc-500 text-sm">
+                    Usuario demo: <span class="text-orange-400">demo</span><br>
+                    Contraseña: <span class="text-orange-400">123456</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-zinc-500 text-sm">
+            <a href="index.html" class="hover:text-orange-400 transition-colors">
+                ← Volver al inicio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "demo" && password === "123456") {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Usuario o contraseña incorrectos. Usa: demo / 123456");
+            }
+        });
+    </script>
+</body>
+</html>
